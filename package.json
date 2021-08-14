@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
-    "dev": "NODE_ENV=development nodemon"
+    "start": "npm run dev",
+    "dev": "cross-env NODE_ENV=development nodemon",
+    "heroku-postbuild": "npm run build",
+    "start-heroku": "cross-env NODE_ENV=production node build/server.js"
   },
   "author": "",
   "license": "ISC",
