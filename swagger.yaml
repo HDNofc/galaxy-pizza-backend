@@ -1,0 +1,20 @@
+tags:
+  - name: Pizzas
+    description: pizzas API
+
+paths:
+  # [GET] pizzas
+  /pizzas:
+    get:
+      tags:
+        - pizzas
+      summary: Find All Pizzas
+      responses:
+        200:
+          description: 'success'
+        500:
+          description: 'Server Error'
+
+schemes:
+  - https
+  - http
