@@ -2,92 +2,48 @@ import { model, Schema, Model } from 'mongoose';
 
 import { PizzaModelInterface } from '../interfaces/pizza-interface';
 
+const PizzaStuffedCrust = {
+  sizes: {
+    type: [Number],
+    default: undefined,
+  },
+  price: {
+    type: [Number],
+    default: undefined,
+  },
+};
+
+const PizzaImageShape = {
+  jpg: String,
+  webp: String,
+};
+
 const PizzaSchema = new Schema<PizzaModelInterface, Model<PizzaModelInterface>, PizzaModelInterface>(
   {
     name: String,
     description: String,
     imageUrl: {
       fat: {
-        crop: {
-          jpg: {
-            type: String,
-          },
-          webp: {
-            type: String,
-          },
-        },
-        full: {
-          jpg: {
-            type: String,
-          },
-          webp: {
-            type: String,
-          },
-        },
+        crop: PizzaImageShape,
+        full: PizzaImageShape,
       },
       slim: {
-        crop: {
-          jpg: {
-            type: String,
-          },
-          webp: {
-            type: String,
-          },
-        },
-        full: {
-          jpg: {
-            type: String,
-          },
-          webp: {
-            type: String,
-          },
-        },
+        crop: PizzaImageShape,
+        full: PizzaImageShape,
       },
     },
     types: {
       fat: {
-        none: {
-          sizes: {
-            type: [Number],
-          },
-          price: {
-            type: [Number],
-          },
-        },
-        cheese: {
-          sizes: {
-            type: [Number],
-          },
-          price: {
-            type: [Number],
-          },
-        },
-        sausage: {
-          sizes: {
-            type: [Number],
-          },
-          price: {
-            type: [Number],
-          },
-        },
+        none: PizzaStuffedCrust,
+        cheese: PizzaStuffedCrust,
+        sausage: PizzaStuffedCrust,
       },
       slim: {
-        none: {
-          sizes: {
-            type: [Number],
-          },
-          price: {
-            type: [Number],
-          },
-        },
+        none: PizzaStuffedCrust,
       },
     },
-    hot: {
-      type: Boolean,
-    },
-    vegan: {
-      type: Boolean,
-    },
+    hot: Boolean,
+    vegan: Boolean,
   },
   {
     timestamps: true,
