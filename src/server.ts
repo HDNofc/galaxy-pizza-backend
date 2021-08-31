@@ -16,6 +16,9 @@ app.use(swaggerRoutes);
 
 app
   .listen(process.env.PORT, (): void => {
-    console.log('Server running!');
+    console.info(`=================================`);
+    console.info(`======= ENV: ${process.env.NODE_ENV} =======`);
+    console.info(`🚀 App listening on the port ${process.env.PORT}`);
+    console.info(`=================================`);
   })
   .on('error', (error) => console.log(error));
