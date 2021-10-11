@@ -8,7 +8,8 @@
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development nodemon",
     "heroku-postbuild": "npm run build",
-    "start-heroku": "cross-env NODE_ENV=production node build/server.js"
+    "start-heroku": "cross-env NODE_ENV=production node build/server.js",
+    "docker:dev": "docker-compose -f docker-compose.dev.yml up"
   },
   "author": "",
   "license": "ISC",
